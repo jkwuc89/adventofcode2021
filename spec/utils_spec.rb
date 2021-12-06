@@ -11,7 +11,7 @@ describe Utils do
     end
 
     context 'when file exists' do
-      let(:result) { described_class.read_numbers_from(file: 'input/day_one_puzzle_one.txt') }
+      let(:result) { described_class.read_numbers_from(file: 'input/day_one_part_one.txt') }
 
       it 'returns array of numbers from the file' do
         expect(result).to be_a(Array)
