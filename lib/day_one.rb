@@ -11,4 +11,17 @@ class DayOne
 
     increases
   end
+
+  def part_two(depths:)
+    increases = 0
+    depths.each_with_index do |_, index|
+      break if index + 3 >= depths.length
+
+      previous_depth_sum = depths[index..index + 2].sum
+      next_depth_sum = depths[index + 1..index + 3].sum
+      increases += 1 if next_depth_sum > previous_depth_sum
+    end
+
+    increases
+  end
 end
