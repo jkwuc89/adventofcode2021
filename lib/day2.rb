@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Day2
-  def part_one(commands:)
+  def part1(commands:)
     depth = 0
     horizontal_position = 0
 
@@ -22,7 +22,7 @@ class Day2
     horizontal_position * depth
   end
 
-  def part_two(commands:)
+  def part2(commands:)
     aim = 0
     depth = 0
     horizontal_position = 0

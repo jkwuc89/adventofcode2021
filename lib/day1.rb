@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Day1
-  def part_one(depths:)
+  def part1(depths:)
     increases = 0
     previous_depth = depths[0]
     depths[1..].each do |depth|
@@ -12,7 +12,7 @@ class Day1
     increases
   end
 
-  def part_two(depths:)
+  def part2(depths:)
     increases = 0
     depths.each_with_index do |_, index|
       break if index + 3 >= depths.length

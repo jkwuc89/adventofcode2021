@@ -19,25 +19,25 @@ describe Day2 do
 
   let(:file_input) { File.readlines('input/day2.txt') }
 
-  describe '#part_one' do
+  describe '#part1' do
     context 'with example input' do
-      it { expect(day2.part_one(commands: example_input)).to eq(150) }
+      it { expect(day2.part1(commands: example_input)).to eq(150) }
     end
 
     context 'with puzzle input file' do
-      it { expect(day2.part_one(commands: file_input)).to eq(1_488_669) }
+      it { expect(day2.part1(commands: file_input)).to eq(1_488_669) }
     end
   end
 
-  describe '#part_two' do
+  describe '#part2' do
     context 'with example input' do
-      it { expect(day2.part_two(commands: example_input)).to eq(900) }
+      it { expect(day2.part2(commands: example_input)).to eq(900) }
     end
 
     context 'with puzzle input file' do
       let(:commands) { File.readlines('input/day2.txt') }
 
-      it { expect(day2.part_two(commands: file_input)).to eq(1_176_514_794) }
+      it { expect(day2.part2(commands: file_input)).to eq(1_176_514_794) }
     end
   end
 end

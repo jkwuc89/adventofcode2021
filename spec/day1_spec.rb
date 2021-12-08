@@ -12,24 +12,24 @@ describe Day1 do
 
   let(:file_input) { Utils.read_numbers_from(file: 'input/day1.txt') }
 
-  describe '#part_one' do
+  describe '#part1' do
     context 'with example input' do
-      it { expect(day1.part_one(depths: example_input)).to eq(7) }
+      it { expect(day1.part1(depths: example_input)).to eq(7) }
     end
 
     context 'with puzzle input file' do
-      it { expect(day1.part_one(depths: file_input)).to eq(1162) }
+      it { expect(day1.part1(depths: file_input)).to eq(1162) }
     end
 
   end
 
-  describe '#part_two' do
+  describe '#part2' do
     context 'with example input' do
-      it { expect(day1.part_two(depths: example_input)).to eq(5) }
+      it { expect(day1.part2(depths: example_input)).to eq(5) }
     end
 
     context 'with puzzle input file' do
-      it { expect(day1.part_two(depths: file_input)).to eq(1190) }
+      it { expect(day1.part2(depths: file_input)).to eq(1190) }
     end
   end
 end
