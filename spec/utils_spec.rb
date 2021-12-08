@@ -11,12 +11,12 @@ describe Utils do
     end
 
     context 'when file exists' do
-      let(:result) { described_class.read_numbers_from(file: 'input/day_one_part_one.txt') }
+      let(:result) { described_class.read_numbers_from(file: 'input/day1.txt') }
 
       it 'returns array of numbers from the file' do
         expect(result).to be_a(Array)
         expect(result.sample).to be_a(Integer)
-        expect(result.length).to eq(100)
+        expect(result.length).to eq(2000)
       end
     end
   end

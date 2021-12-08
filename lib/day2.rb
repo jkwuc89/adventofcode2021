@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DayTwo
+class Day2
   def part_one(commands:)
     depth = 0
     horizontal_position = 0

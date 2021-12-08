@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DayOne
+class Day1
   def part_one(depths:)
     increases = 0
     previous_depth = depths[0]

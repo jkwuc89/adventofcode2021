@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'day_two'
+require 'day2'
 require 'utils'
 
-describe DayTwo do
-  let(:day_two) { described_class.new }
+describe Day2 do
+  let(:day2) { described_class.new }
 
   describe '#part_one' do
     context 'with example input' do
@@ -19,13 +19,13 @@ describe DayTwo do
         ]
       end
 
-      it { expect(day_two.part_one(commands: commands)).to eq(150) }
+      it { expect(day2.part_one(commands: commands)).to eq(150) }
     end
 
     context 'with puzzle input file' do
-      let(:commands) { File.readlines('input/day_two.txt') }
+      let(:commands) { File.readlines('input/day2.txt') }
 
-      it { expect(day_two.part_one(commands: commands)).to eq(1_488_669) }
+      it { expect(day2.part_one(commands: commands)).to eq(1_488_669) }
     end
   end
 
@@ -42,13 +42,13 @@ describe DayTwo do
         ]
       end
 
-      it { expect(day_two.part_two(commands: commands)).to eq(900) }
+      it { expect(day2.part_two(commands: commands)).to eq(900) }
     end
 
     context 'with puzzle input file' do
-      let(:commands) { File.readlines('input/day_two.txt') }
+      let(:commands) { File.readlines('input/day2.txt') }
 
-      it { expect(day_two.part_two(commands: commands)).to eq(1_176_514_794) }
+      it { expect(day2.part_two(commands: commands)).to eq(1_176_514_794) }
     end
   end
 end
