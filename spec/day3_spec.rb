@@ -31,8 +31,6 @@ describe Day3 do
     end
 
     context 'with puzzle input file' do
-      let(:commands) { File.readlines('input/day3.txt') }
-
       it { expect(day3.part1(report_entries: file_input)).to eq(693_486) }
     end
   end
@@ -43,8 +41,6 @@ describe Day3 do
     end
 
     context 'with puzzle input file' do
-      let(:commands) { File.readlines('input/day3.txt') }
-
       it { expect(day3.part2(report_entries: file_input)).to eq(3_379_326) }
     end
   end

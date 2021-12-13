@@ -35,8 +35,6 @@ describe Day2 do
     end
 
     context 'with puzzle input file' do
-      let(:commands) { File.readlines('input/day2.txt') }
-
       it { expect(day2.part2(commands: file_input)).to eq(1_176_514_794) }
     end
   end
