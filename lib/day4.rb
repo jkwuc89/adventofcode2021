@@ -2,16 +2,8 @@
 
 class Day4
   def part1(input:)
-    current_input_row = 0
-    numbers_to_draw = input[current_input_row]
-    current_input_row += 2
-
-    bingo_tables = []
-
-    while current_input_row < input.count
-      bingo_tables.push(build_bingo_table(input_rows: input[current_input_row..current_input_row + 4]))
-      current_input_row += 6
-    end
+    numbers_to_draw = input[0]
+    bingo_tables = get_bingo_tables(input: input)
 
     winning_table = nil
     last_number_drawn = 0
@@ -45,27 +37,12 @@ class Day4
       break unless winning_table.nil?
     end
 
-    unmarked_number_sum = 0
-    winning_table[:rows].each do |row|
-      row.keys.select { |number| !row[number] }.each do |unmarked_number|
-        unmarked_number_sum += unmarked_number.to_i
-      end
-    end
-
-    unmarked_number_sum * last_number_drawn
+    compute_final_score(winning_table: winning_table, last_number_drawn: last_number_drawn)
   end
 
   def part2(input:)
-    current_input_row = 0
-    numbers_to_draw = input[current_input_row]
-    current_input_row += 2
-
-    bingo_tables = []
-
-    while current_input_row < input.count
-      bingo_tables.push(build_bingo_table(input_rows: input[current_input_row..current_input_row + 4]))
-      current_input_row += 6
-    end
+    numbers_to_draw = input[0]
+    bingo_tables = get_bingo_tables(input: input)
 
     last_winning_table = nil
     last_number_drawn = 0
@@ -75,10 +52,8 @@ class Day4
         bingo_table[:rows].each do |row|
           if row.key?(number)
             row[number] = true
-            if row.values.all?
-              bingo_table[:winner] = true
-              break
-            end
+            bingo_table[:winner] = true if row.values.all?
+            break
           end
         end
 
@@ -86,10 +61,8 @@ class Day4
           bingo_table[:columns].each do |column|
             if column.key?(number)
               column[number] = true
-              if column.values.all?
-                bingo_table[:winner] = true
-                break
-              end
+              bingo_table[:winner] = true if column.values.all?
+              break
             end
           end
         end
@@ -104,14 +77,7 @@ class Day4
       break unless last_winning_table.nil?
     end
 
-    unmarked_number_sum = 0
-    last_winning_table[:rows].each do |row|
-      row.keys.select { |number| !row[number] }.each do |unmarked_number|
-        unmarked_number_sum += unmarked_number.to_i
-      end
-    end
-
-    unmarked_number_sum * last_number_drawn
+    compute_final_score(winning_table: last_winning_table, last_number_drawn: last_number_drawn)
   end
 
   private
@@ -138,5 +104,29 @@ class Day4
       rows: table_rows,
       winner: false
     }
+  end
+
+  def compute_final_score(winning_table:, last_number_drawn:)
+    unmarked_number_sum = 0
+    winning_table[:rows].each do |row|
+      row.keys.select { |number| !row[number] }.each do |unmarked_number|
+        unmarked_number_sum += unmarked_number.to_i
+      end
+    end
+
+    unmarked_number_sum * last_number_drawn
+  end
+
+  def get_bingo_tables(input:)
+    current_input_row = 2
+
+    bingo_tables = []
+
+    while current_input_row < input.count
+      bingo_tables.push(build_bingo_table(input_rows: input[current_input_row..current_input_row + 4]))
+      current_input_row += 6
+    end
+
+    bingo_tables
   end
 end
