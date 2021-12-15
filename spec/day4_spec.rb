@@ -44,11 +44,11 @@ describe Day4 do
 
   describe '#part2' do
     context 'with example input' do
-      it { expect(day3.part2(input: example_input)).to eq(230) }
+      it { expect(day3.part2(input: example_input)).to eq(1924) }
     end
 
     context 'with puzzle input file' do
-      it { expect(day3.part2(input: file_input)).to eq(3_379_326) }
+      it { expect(day3.part2(input: file_input)).to eq(14_877) }
     end
   end
 end
